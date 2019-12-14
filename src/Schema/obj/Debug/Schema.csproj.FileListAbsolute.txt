@@ -1,0 +1,31 @@
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\Schema.csprojResolveAssemblyReference.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\Schema.csproj.GenerateResource.Cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\Schema.csproj.CoreCompileInputs.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\source\obj\Debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\Custom Stencils\build\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\Custom Stencils\build\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csprojAssemblyReference.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.GenerateResource.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.CoreCompileInputs.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.CopyComplete
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\custom-stencils\build\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\custom-stencils\build\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csprojAssemblyReference.cache
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.GenerateResource.cache
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.CoreCompileInputs.cache
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\Schema.csproj.CopyComplete
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\custom-stencils\ZeraSystems.Schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\build\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\build\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\debug\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Debug\Schema.csprojAssemblyReference.cache
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Debug\Schema.csproj.GenerateResource.cache

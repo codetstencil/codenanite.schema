@@ -1,0 +1,18 @@
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\build\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\build\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\Schema.csprojResolveAssemblyReference.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\Schema.csproj.GenerateResource.Cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\Schema.csproj.CoreCompileInputs.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\Custom Stencils\ZeraSystems.Schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\Schema.csprojAssemblyReference.cache
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\Schema.csproj.GenerateResource.cache
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\Schema.csproj.CopyComplete
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\release\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\build\release\ZeraSystems.CodeNanite.Schema.pdb
