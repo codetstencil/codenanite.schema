@@ -51,9 +51,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Pluralize.NET, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Pluralize.NET.1.0.2\lib\net46\Pluralize.NET.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -64,21 +61,25 @@
     <Reference Include="ZeraSystems.CodeNanite.Expansion, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\packages\ZeraSystems.CodeNanite.Expansion.1.0.0\lib\net462\ZeraSystems.CodeNanite.Expansion.dll</HintPath>
     </Reference>
-    <Reference Include="ZeraSystems.CodeStencil.Contracts, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZeraSystems.CodeStencil.Contracts.1.1.1\lib\net462\ZeraSystems.CodeStencil.Contracts.dll</HintPath>
+    <Reference Include="ZeraSystems.CodeStencil.Contracts, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeraSystems.CodeStencil.Contracts.1.1.2\lib\net462\ZeraSystems.CodeStencil.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Columns\ExpandModels.Functions.cs" />
     <Compile Include="Columns\ExpandModels.cs" />
     <Compile Include="Columns\ExpandColumnsHorizontally.cs" />
     <Compile Include="Columns\ExpandColumnsHorizontally.Functions.cs" />
+    <Compile Include="Columns\ExpandModels.Functions.cs">
+      <DependentUpon>ExpandModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Columns\GetPrimaryKey.cs" />
     <Compile Include="Columns\GetPrimaryKey.Functions.cs">
       <DependentUpon>GetPrimaryKey.cs</DependentUpon>
     </Compile>
     <Compile Include="Columns\GetPrimaryKeyWithTable.cs" />
-    <Compile Include="Columns\GetPrimaryKeyWithTable.Functions.cs" />
+    <Compile Include="Columns\GetPrimaryKeyWithTable.Functions.cs">
+      <DependentUpon>GetPrimaryKeyWithTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Help\CreateModel\CreateModel.cs" />
     <Compile Include="Help\CreateModel\CreateModel.Functions.cs">
       <DependentUpon>CreateModel.cs</DependentUpon>
@@ -143,13 +144,21 @@
     <Compile Include="Tables\GenerateModel.Functions.cs">
       <DependentUpon>GenerateModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tables\TableList.cs" />
     <Compile Include="Tables\TableList.Functions.cs">
       <DependentUpon>TableList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tables\TableListS.cs" />
+    <Compile Include="Tables\TableListLowerCase.cs" />
+    <Compile Include="Tables\TableList.cs" />
+    <Compile Include="Tables\TableListLowerCase.Functions.cs">
+      <DependentUpon>TableListLowerCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tables\TableListS.Functions.cs">
       <DependentUpon>TableListS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tables\TableListSLowerCase.cs" />
+    <Compile Include="Tables\TableListS.cs" />
+    <Compile Include="Tables\TableListSLowerCase.Functions.cs">
+      <DependentUpon>TableListSLowerCase.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

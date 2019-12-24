@@ -23,8 +23,8 @@ namespace ZeraSystems.CodeNanite.Schema
     [CodeStencilCodeNanite(new[]
     {
         "Zera Systems Inc.",                        // 0
-        "Returns the Primary Key of passed table qualified with tablename",  // 1
-        "..",                                       // 2
+        "Returns the Primary Key of passed table qualified with table name",  // 1
+        "Returns the Primary Key of passed table together with the table name e.g. 'Albums.Id' ",  // 1
         "1.0",                                      // 3
         "GetPrimaryKeyWithTable",                            // 4
         "ZeraSystems.CodeNanite.Schema",            // 5

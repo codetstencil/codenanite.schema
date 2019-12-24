@@ -24,7 +24,8 @@ namespace ZeraSystems.CodeNanite.Schema
     {
         "Zera Systems Inc.",                    // 0
         "Return a Pluralized List of Tables",              // 1
-        "..",                                   // 2
+        "Return a Pluralized List of Tables. When used as part of the label of a node, it will generate either files or folders for as many tables are available "+
+        "in the schema depending on whether the node is File node or a Folder node. ",                                   // 2
         "1.0",                                  // 3
         "TableListS",                         // 4
         "ZeraSystems.CodeNanite.Schema",                  // 5

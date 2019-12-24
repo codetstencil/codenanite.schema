@@ -22,19 +22,20 @@ namespace ZeraSystems.CodeNanite.Schema
     [Export(typeof(ICodeStencilCodeNanite))]
     [CodeStencilCodeNanite(new[]
     {
-        "Zera Systems Inc.",                        // 0
-        "Get Primary Key of passed table",  // 1
-        "Returns the Primary Key of passed table without the table name e.g. 'Id' ",  // 1
-        "1.0",                                      // 3
-        "GetPrimaryKey",                            // 4
-        "ZeraSystems.CodeNanite.Schema",            // 5
-        "10/10/2018",                               // 6
-        "CS_PRIMARY_KEY",                           // 7
-        "1",                                        // 8
-        "",                                         // 9
-        ""                                          // 10
+        "Zera Systems Inc.",                    // 0
+        "Returns a List of Tables (in Lowercase)",              // 1
+        "When used as part of the label of a node, it will generate either files or folders (in lowercase) for as many tables are available "+
+        "in the schema depending on whether the node is File node or a Folder node. ",                                   // 2
+        "1.0",                                  // 3
+        "TableListLowerCase",                         // 4
+        "ZeraSystems.CodeNanite.Schema",                  // 5
+        "07/07/2017",                           // 6
+        "CS_TABLE_LIST_LOWER",                           // 7
+        "1",                                    // 8
+        "",                                     // 9
+        ""                                      // 10
     })]
-    public partial class GetPrimaryKey : ExpansionBase, ICodeStencilCodeNanite
+    public partial class TableListLowerCase : ExpansionBase, ICodeStencilCodeNanite
     {
         public string Input { get; set; }
         public string Output { get; set; }
@@ -48,7 +49,7 @@ namespace ZeraSystems.CodeNanite.Schema
         {
             Initializer(SchemaItem, Expander);
             MainFunction();
-            //Output = ExpandedText.ToString();
+            Output = ExpandedText.ToString();
         }
     }
 }

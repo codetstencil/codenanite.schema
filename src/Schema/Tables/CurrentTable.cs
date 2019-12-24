@@ -24,7 +24,7 @@ namespace ZeraSystems.CodeNanite.Schema
     {
         "Zera Systems Inc.",                    
         "Current Table Getter",                 
-        "Get The Current Table",                
+        "Get The Current Table. This is dependent on CS_TABLE_LIST when specified as part of a node label. Code will be generated for tables in the schema.",                
         "1.0",                                  
         "CurrentTable",
         "ZeraSystems.CodeNanite.Schema",
