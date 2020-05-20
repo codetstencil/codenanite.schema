@@ -31,7 +31,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_DATA_MODEL_COLUMNS",
         "1",
         "",
-        ""
+        "https://codestencil.com/documentation/how-codestencil-works"
     })]
     public partial class ExpandModels : ExpansionBase, ICodeStencilCodeNanite
     {

@@ -30,8 +30,8 @@ namespace ZeraSystems.CodeNanite.Schema
         "07/07/2017",
         "CS_CURRENT_TABLES",                        
         "1",                                    
-        "",                                      
-        ""                                      
+        "",
+        "https://codestencil.com/zerasystems.schema/current-tables"
     })]
     public partial class CurrentTableS : ExpansionBase, ICodeStencilCodeNanite
     {

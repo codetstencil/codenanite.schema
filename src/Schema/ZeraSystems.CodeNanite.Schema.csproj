@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZeraSystems.CodeNanite.Schema</RootNamespace>
     <AssemblyName>ZeraSystems.CodeNanite.Schema</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -51,26 +51,60 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.14.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.14.0\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.23.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.23\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="WindowsBase" />
-    <Reference Include="ZeraSystems.CodeNanite.Expansion, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\ZeraSystems.CodeNanite.Expansion.1.0.0\lib\net462\ZeraSystems.CodeNanite.Expansion.dll</HintPath>
+    <Reference Include="ZeraSystems.CodeNanite.Expansion, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeraSystems.CodeNanite.Expansion.1.1.3\lib\net462\ZeraSystems.CodeNanite.Expansion.dll</HintPath>
     </Reference>
-    <Reference Include="ZeraSystems.CodeStencil.Contracts, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZeraSystems.CodeStencil.Contracts.1.1.2\lib\net462\ZeraSystems.CodeStencil.Contracts.dll</HintPath>
+    <Reference Include="ZeraSystems.CodeStencil.Contracts, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeraSystems.CodeStencil.Contracts.1.1.3\lib\net462\ZeraSystems.CodeStencil.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Columns\ExpandColumnsHorizontally.Functions.cs">
+      <DependentUpon>ExpandColumnsHorizontally.cs</DependentUpon>
+    </Compile>
     <Compile Include="Columns\ExpandModels.cs" />
     <Compile Include="Columns\ExpandColumnsHorizontally.cs" />
-    <Compile Include="Columns\ExpandColumnsHorizontally.Functions.cs" />
     <Compile Include="Columns\ExpandModels.Functions.cs">
       <DependentUpon>ExpandModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnCaptions.Functions.cs">
+      <DependentUpon>GetColumnCaptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnDbTypes.cs" />
+    <Compile Include="Columns\GetColumnDbTypes.Functions.cs">
+      <DependentUpon>GetColumnDbTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnCaptions.cs" />
+    <Compile Include="Columns\GetColumnNames.Functions.cs">
+      <DependentUpon>GetColumnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnTypes.cs" />
+    <Compile Include="Columns\GetColumnNames.cs" />
+    <Compile Include="Columns\GetColumnTypes.Functions.cs">
+      <DependentUpon>GetColumnTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Columns\GetPrimaryKey.cs" />
     <Compile Include="Columns\GetPrimaryKey.Functions.cs">
@@ -126,12 +160,12 @@
     <Compile Include="Tables\GenerateDbContextFiles.Functions.cs">
       <DependentUpon>GenerateDbContextFiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tables\GenerateDbContextModelBuilder.cs" />
-    <Compile Include="Tables\GenerateDbContextModelBuilder.Functions.cs">
+    <Compile Include="Excluded\GenerateDbContextModelBuilder.cs" />
+    <Compile Include="Excluded\GenerateDbContextModelBuilder.Functions.cs">
       <DependentUpon>GenerateDbContextModelBuilder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tables\GenerateFluentAPI.cs" />
-    <Compile Include="Tables\GenerateFluentAPI.Functions.cs">
+    <Compile Include="Excluded\GenerateFluentAPI.cs" />
+    <Compile Include="Excluded\GenerateFluentAPI.Functions.cs">
       <DependentUpon>GenerateFluentAPI.cs</DependentUpon>
     </Compile>
     <Compile Include="Tables\GenerateFluentConfig.cs" />
@@ -139,7 +173,9 @@
       <DependentUpon>GenerateFluentConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Tables\GenerateLookups.cs" />
-    <Compile Include="Tables\GenerateLookups.Functions.cs" />
+    <Compile Include="Tables\GenerateLookups.Functions.cs">
+      <DependentUpon>GenerateLookups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tables\GenerateModel.cs" />
     <Compile Include="Tables\GenerateModel.Functions.cs">
       <DependentUpon>GenerateModel.cs</DependentUpon>
@@ -184,7 +220,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Debug" (
+    <PostBuildEvent>copy $(TargetFileName) "D:\projects-desktop\build\CodeStencil\CodeNanites" /y
+if "$(ConfigurationName)" == "Debug" (
     copy $(TargetFileName) "D:\Documents\CodeStencil\CodeNanites" /y
 ) ELSE (
     "D:\projects-desktop\codestencil\app\build-compile\signer-nuget.bat"   $(TargetPath) $(ProjectDir)$(ProjectName)

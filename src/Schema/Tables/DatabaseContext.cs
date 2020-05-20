@@ -22,17 +22,17 @@ namespace ZeraSystems.CodeNanite.Schema
     [Export(typeof(ICodeStencilCodeNanite))]
     [CodeStencilCodeNanite(new[]
     {
-        "Zera Systems Inc.",                    // 0
-        "Returns a generated db context",       // 1
-        "..",                                   // 2
-        "1.0",                                  // 3
-        "DatabaseContext",                      // 4
-        "ZeraSystems.CodeNanite.Schema",               // 5
-        "03/03/2017",                           // 6
-        "CS_DATABASE_CONTEXT",                     // 7
-        "1",                                    // 8
-        "",                                     // 9
-        ""                                      // 10
+        "Zera Systems Inc.",                                        // 0
+        "Returns a generated db context",                           // 1
+        "..",                                                       // 2
+        "1.0",                                                      // 3
+        "DatabaseContext",                                          // 4
+        "ZeraSystems.CodeNanite.Schema",                            // 5
+        "03/03/2017",                                               // 6
+        "CS_DATABASE_CONTEXT",                                      // 7
+        "1",                                                        // 8
+        "",                                                         // 9
+        "https://codestencil.com/zerasystems.schema/databasecontext"// 10
     })]
     public partial class DatabaseContext : ExpansionBase, ICodeStencilCodeNanite
     {

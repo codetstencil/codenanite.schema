@@ -18,6 +18,7 @@ namespace ZeraSystems.CodeNanite.Schema
         {
             _table = GetTable(Input.Singularize());
             _foreignKeys = GetForeignKeysInTable(_table);
+            //_foreignKeys = GetNavProperties(_table);
 
             AppendText();
             if (!_foreignKeys.Any())

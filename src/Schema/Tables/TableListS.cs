@@ -33,7 +33,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_TABLE_LISTS",                           // 7
         "1",                                    // 8
         "",                                     // 9
-        ""                                      // 10
+        "https://codestencil.com/documentation/how-codestencil-works"                                      // 10
     })]
     public partial class TableListS : ExpansionBase, ICodeStencilCodeNanite
     {

@@ -25,7 +25,7 @@ namespace ZeraSystems.CodeNanite.Schema
             //AppendText(Indent(0) + "}");
         }
 
-        readonly StringBuilder _iCollectionList = new StringBuilder();
+        private readonly StringBuilder _iCollectionList = new StringBuilder();
 
         private string GetColumns(bool ignoreCalculated = true)
         {
@@ -76,8 +76,6 @@ namespace ZeraSystems.CodeNanite.Schema
             BuildSnippet(_iCollectionList, _public + "virtual ICollection<" + item + "> " + inverse + _getSet + " = new HashSet<" + item + ">();");
         }
 
-        //private static string Singularize(string text) => new Pluralizer().Singularize(text);
-        //private static string Pluralize(string text) => new Pluralizer().Pluralize(text);
         private void GetHashSet(List<ISchemaItem> columns, string theIndent)
         {
             AppendText(theIndent + "public " + Singularize(Input) + "()");
@@ -89,13 +87,5 @@ namespace ZeraSystems.CodeNanite.Schema
             }
             AppendText(theIndent + "}");
         }
-
-        private void AddNamespaces()
-        {
-            AppendText(Indent(0) + "using System.ComponentModel.DataAnnotations;");
-            AppendText(Indent(0) + "using System.ComponentModel.DataAnnotations.Schema;");
-            AppendText(string.Empty);
-        }
-
     }
 }

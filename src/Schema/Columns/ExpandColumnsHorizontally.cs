@@ -31,7 +31,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_HORIZ_COLUMNS",
         "1",
         "",
-        ""
+        "https://codestencil.com/documentation/how-codestencil-works"
     })]
     public partial class ExpandColumnsHorizontally : ExpansionBase, ICodeStencilCodeNanite
     {

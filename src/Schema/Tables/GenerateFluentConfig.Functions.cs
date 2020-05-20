@@ -77,7 +77,7 @@ namespace ZeraSystems.CodeNanite.Schema
             result += ";".AddCarriage();
 
             result += Indent(indent) + FormatOneToMany(row, indent);
-            result += Indent(indent) + FormatOneToOne(row, indent);
+            //result += Indent(indent) + FormatOneToOne(row, indent);
             return result;
         }
 
@@ -141,14 +141,26 @@ namespace ZeraSystems.CodeNanite.Schema
         private string FormatOneToMany(ISchemaItem row, int indent)
         {
             var result = string.Empty;
-            if ((row.IsForeignKey && !row.RelatedTable.IsBlank()) && !row.IsPrimaryKey )
+            if ( ((row.IsForeignKey && !row.RelatedTable.IsBlank()) && !row.IsPrimaryKey) || 
+                 (row.IsForeignKey && row.IsPrimaryKey)     //Support for intermediate table in many-to-many
+                 )
             {
                 var relatedTable = row.RelatedTable;
                 if (row.RelatedTable == row.TableName)  //Indicating a table related to itself
                     relatedTable = row.ColumnName + NavigationLabel();
                 result += Environment.NewLine;
-                result += Indent(indent-4) + "entity.HasOne(d => d." + relatedTable + ")".AddCarriage();
-                result += Indent(indent) + ".WithMany(p => p." + _table.Pluralize() + ")".AddCarriage();
+                //result += Indent(indent-4) + "entity.HasOne(d => d." + relatedTable + ")".AddCarriage();
+
+                if (row.RelatedTable != row.TableName)  //Indicating a table related to itself
+                    result += Indent(indent - 4) + "entity.HasOne(d => d." + CreateTablePropertyName(row) + ")".AddCarriage();
+                else
+                    result += Indent(indent - 4) + "entity.HasOne(d => d." + row.SelfReferenceColumn() + ")".AddCarriage();
+
+                if (row.RelatedTable == row.TableName)  //Indicating a table related to itself
+                    result += Indent(indent) + ".WithMany(p => p." + row.SelfRefNavProperty() + ")".AddCarriage();
+                else
+                    result += Indent(indent) + ".WithMany(p => p." + _table.Pluralize() + ")".AddCarriage();
+
                 result += Indent(indent) + ".HasForeignKey(d => d." + row.ColumnName + ")";
                 //BuildSnippet(".OnDelete(DeleteBehavior.Restrict)");
                 if (row.ConstraintName.IsBlank())
@@ -157,6 +169,7 @@ namespace ZeraSystems.CodeNanite.Schema
                     result += "".AddCarriage() +Indent(indent) + ".HasConstraintName(" + row.ConstraintName.AddQuotes()+");";
             }
             return result;
+            //CreateTablePropertyName(row)
         }
 
         private string FormatOneToOne(ISchemaItem row, int indent)
@@ -180,14 +193,6 @@ namespace ZeraSystems.CodeNanite.Schema
                     result += "".AddCarriage() + Indent(indent) + ".HasConstraintName(" + row.ConstraintName.AddQuotes() + ");";
             }
             return result;
-
-            //
-            // Person(ID)<->OfficeAssignment(InstructorID)
-            //
-            //Note: entity here = OfficeAssignment
-            //entity.HasOne(p => p.Person)
-            //    .WithOne(i => i.OfficeAssignment)
-            //    .HasForeignKey<OfficeAssignment>(b => b.InstructorID);
 
 
         }

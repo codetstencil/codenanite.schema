@@ -31,7 +31,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_CURRENT_TABLE_LOWER",
         "1",
         "",
-        ""
+        "https://codestencil.com/zerasystems.schema/current-table-lowercase"
     })]
     public partial class CurrentTableLowerCase : ExpansionBase, ICodeStencilCodeNanite
     {

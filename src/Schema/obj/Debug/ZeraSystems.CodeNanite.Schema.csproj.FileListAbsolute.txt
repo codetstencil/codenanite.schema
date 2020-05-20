@@ -8,3 +8,10 @@ D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\D
 D:\projects-desktop\codestencil\code-nanites\zerasystems.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.pdb
 D:\projects-desktop\codestencil\code-nanites\build\debug\ZeraSystems.CodeNanite.Schema.dll
 D:\projects-desktop\codestencil\code-nanites\build\debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.csprojAssemblyReference.cache
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.csproj.GenerateResource.cache
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.csproj.CopyComplete
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.dll
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.pdb
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Debug\ZeraSystems.CodeNanite.Schema.csproj.CoreCompileInputs.cache

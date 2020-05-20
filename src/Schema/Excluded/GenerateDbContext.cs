@@ -30,8 +30,8 @@ namespace ZeraSystems.CodeNanite.Schema
         "07/04/2018",
         "CS_GENERATE_DBCONTEXT",
         "1",
-        "",
-        "EXCLUDE"
+        "EXCLUDE",
+        ""
     })]
     public partial class GenerateDbContext : ExpansionBase, ICodeStencilCodeNanite
     {

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
 using ZeraSystems.CodeNanite.Expansion;
 
 //using ZeraSystems.CodeNanite.Expansion;
@@ -10,65 +14,100 @@ namespace ZeraSystems.CodeNanite.Schema
     {
         private string _public = "public ";
         private string _getSet = " { get; set; }";
-        private string _classname;
+        private string _className;
         private string _table;
         private List<ISchemaItem> _columns;
-        private List<ISchemaItem> _relatedColumns;
+        private List<ISchemaItem> _navProperties;
+        private List<ISchemaItem> _selfRefColumns;
         private List<ISchemaItem> _foreignKeys;
 
         private void MainFunction()
         {
             _table = Input.Singularize();
             _columns = GetColumns(Input, false); 
-            _relatedColumns = GetRelatedTables(Input);
-            _foreignKeys = GetForeignKeysInTable(Input, true);
-            _classname = Singularize(Input) + GetExpansionString("MODEL_SUFFIX") + " ";
+            _navProperties = GetNavProperties(Input);
+            _foreignKeys = GetForeignKeysInTable(Input)
+                .Where(k=>k.TableName != k.RelatedTable).ToList();
+            _selfRefColumns = GetSelfJoinColumns(Input);
+            _className = Singularize(Input) + GetExpansionString("MODEL_SUFFIX") + " ";
+
             AppendText();
-            BuildSnippet(null);
-            BuildSnippet(_public + "class " + _classname, 4);
-            BuildSnippet("{", 4);
+            AppendText(_public + "partial class " + _className, 4, string.Empty);
+            AppendText("{", 4);
+
+            //Constructor
+            if (_navProperties.Any(e => e.TableName!=_table))
+                AppendText(GetConstructor(), string.Empty); 
+
             AppendText(GetColumns(), string.Empty); // This is not to allow line feed
-            BuildSnippet("}", 4);
-            AppendText(BuildSnippet(), string.Empty);
+            AppendText("}", 4, string.Empty);
+        }
+
+        private string GetConstructor(int indent=8)
+        {
+            BuildSnippet(null);
+            BuildSnippet(_public+_table+"()", indent);
+            BuildSnippet("{", indent);
+
+            foreach (var item in _navProperties)
+            {
+                if (item.TableName == _table) continue;
+                BuildSnippet(item.TableName.Pluralize() + " = new HashSet<" + item.TableName + ">();", indent+4);
+                GetSelfRefVanProperty(item);
+            }
+            BuildSnippet("}", indent);
+            BuildSnippet("");
+            return BuildSnippet();
+
+
+            void GetSelfRefVanProperty(ISchemaItem item)
+            {
+                if (_selfRefColumns.Any())
+                {
+                    foreach (var col in _selfRefColumns)
+                        BuildSnippet(col.SelfRefNavProperty() + " = new HashSet<" + _table + ">();", indent + 4);
+                }
+            }
         }
 
         private string GetColumns()
         {
+            BuildSnippet(null);
             foreach (var item in _columns)
                 BuildSnippet(_public + item.ColumnType + GetNullSign(item) + " " + item.ColumnName + _getSet);
 
             BuildSnippet("");
-            GetForeignKeyColumns();
-            GetRelatedColumns();
+            GetNavProperties();
             return BuildSnippet();
         }
 
-        private void GetForeignKeyColumns()
+        private void GetNavProperties()
         {
-            foreach (var item in _foreignKeys)
+            foreach (var item in _navProperties)
             {
-                if (item.TableName == _table && item.RelatedTable == _table) //A table related to itself
-                    BuildSnippet(_public + GetTableString(item.RelatedTable) + " " + item.ColumnName + NavigationLabel() + _getSet);
-                else if (item.RelatedTable == _table)
-                    BuildSnippet(_public + GetTableString(item.TableName) + " " + item.TableName + _getSet);
+                if (item.TableName == item.RelatedTable)
+                {
+                    BuildSnippet(_public + "virtual " + item.TableName + " " + item.SelfReferenceColumn() + _getSet);
+                    BuildSnippet(_public + "virtual ICollection<" + item.TableName + "> " + item.SelfRefNavProperty() + _getSet);
+                }
                 else
-                    BuildSnippet(_public + GetTableString(item.RelatedTable) + " " + item.RelatedTable + _getSet);
+                {
+                    if (_foreignKeys.Any())
+                    {
+                        //loop FKs
+                        foreach (var key in _foreignKeys)
+                            if (key.TableName != key.RelatedTable)
+                                BuildSnippet(_public + "virtual " + key.RelatedTable + " " + CreateTablePropertyName(key) + _getSet);
+                        _foreignKeys.Clear();
+                    }
+                    if (item.TableName != _table)
+                        BuildSnippet(_public + "virtual ICollection<" + item.TableName + "> " + item.TableName.Pluralize() + _getSet);
+                }
+
             }
         }
 
-        private void GetRelatedColumns()
-        {
-            foreach (var item in _relatedColumns)
-            {
-                var relatedTable = GetTableString(item.TableName);
-                if (IsPrimaryInRelated(_table, relatedTable.Singularize()))
-                    continue;
-                if (!IsTableEnabled(relatedTable))
-                    continue;
-                BuildSnippet(_public + "ICollection<" + relatedTable + "> " + relatedTable.Pluralize() + _getSet +
-                             " = new HashSet<" + relatedTable + ">();");
-            }
-        }
+
 
         private string GetTableString(string table)
         {

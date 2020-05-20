@@ -7,17 +7,18 @@ using ZeraSystems.CodeStencil.Contracts;
 namespace ZeraSystems.CodeNanite.Schema
 {
     /// <summary>
-    /// There are 6 elements in the String Array used by the 
-    /// 0 - This is the name of the publisher
-    /// 1 - This is the title of the Code Nanite
-    /// 2 - This is the 
-    /// 3 - Version Number
-    /// 4 - Label of the Code Nanite
-    /// 5 - Namespace
-    /// 6 - Release Date
-    /// 7 - Name to use for Expander Label
-    /// 9 - RESERVED
-    /// 10 - RESERVED
+    /// There are 10 elements in the String Array used by the 
+    ///  0 - This is the name of the publisher
+    ///  1 - This is the title of the Code Nanite
+    ///  2 - This is the 
+    ///  3 - Version Number
+    ///  4 - Label of the Code Nanite
+    ///  5 - Namespace
+    ///  6 - Release Date
+    ///  7 - Name to use for Expander Label
+    ///  8 - Indicates that the Nanite is Schema Dependent
+    ///  9 - RESERVED
+    /// 10 - Online Help URL
     /// </summary>
     [Export(typeof(ICodeStencilCodeNanite))]
     [CodeStencilCodeNanite(new[]
@@ -31,8 +32,8 @@ namespace ZeraSystems.CodeNanite.Schema
         "07/07/2017",
         "CS_CURRENT_TABLE",                        
         "1",                                    
-        "",                                      
-        ""                                      
+        "",
+        "https://codestencil.com/zerasystems.schema/currenttable"
     })]
     public partial class CurrentTable : ExpansionBase, ICodeStencilCodeNanite
     {

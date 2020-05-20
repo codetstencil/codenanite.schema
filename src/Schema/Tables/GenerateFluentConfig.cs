@@ -31,7 +31,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_GENERATE_FLUENT_CONFIG",
         "1",
         "",
-        ""
+        "https://codestencil.com/zerasystems.schema/generatefluentconfig"
     })]
     public partial class GenerateFluentConfig : ExpansionBase, ICodeStencilCodeNanite
     {

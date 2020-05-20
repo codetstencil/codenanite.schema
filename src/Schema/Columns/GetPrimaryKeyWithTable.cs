@@ -32,7 +32,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_PRIMARY_KEY_WITH_TABLE",                           // 7
         "1",                                        // 8
         "",                                         // 9
-        ""                                          // 10
+        "https://codestencil.com/documentation/how-codestencil-works"                                          // 10
     })]
     public partial class GetPrimaryKeyWithTable : ExpansionBase, ICodeStencilCodeNanite
     {

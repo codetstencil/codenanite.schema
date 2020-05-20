@@ -32,7 +32,7 @@ namespace ZeraSystems.CodeNanite.Schema
         "CS_GENERATE_DBCONTEXT_FILES",
         "1",
         "",
-        ""
+        "https://codestencil.com/zerasystems.schema/generate-dbcontextfiles"
     })]
     public partial class GenerateDbContextFiles : ExpansionBase, ICodeStencilCodeNanite
     {
