@@ -2,6 +2,6 @@
 {
     public partial class CurrentTableLowerCase
     {
-        private void MainFunction() => Output = GetTable(Input).ToLower();
+        private void MainFunction() => Output = GetTable(Input, false).ToLower();
     }
 }

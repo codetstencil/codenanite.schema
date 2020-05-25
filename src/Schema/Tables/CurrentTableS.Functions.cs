@@ -8,6 +8,6 @@ namespace ZeraSystems.CodeNanite.Schema
 {
     public partial class CurrentTableS
     {
-        void MainFunction() => Output = Pluralize(GetTable(Input));
+        void MainFunction() => Output = Pluralize(GetTable(Input, false));
     }
 }

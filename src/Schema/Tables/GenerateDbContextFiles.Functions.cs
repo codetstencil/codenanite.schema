@@ -15,7 +15,7 @@ namespace ZeraSystems.CodeNanite.Schema
         {
             GetExpansionString("DB_CONTEXT");
             GetExpansionString("NAMESPACE");
-            GetTable(Input);
+            GetTable(Input, false);
             //_columns = GetColumns(_table,false);
             _columns = GetColumnsAndNavigation(Input, false);
             if (_columns == null)

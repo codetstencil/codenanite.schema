@@ -6,7 +6,7 @@ namespace ZeraSystems.CodeNanite.Schema
     {
         private void MainFunction()
         {
-            Output = GetTable(Input) +"."+ GetPrimaryKey(Input) ;
+            Output = GetTable(Input, false) +"."+ GetPrimaryKey(Input) ;
         }
     }
 }
