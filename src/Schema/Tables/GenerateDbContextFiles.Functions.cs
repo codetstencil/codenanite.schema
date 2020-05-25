@@ -27,8 +27,8 @@ namespace ZeraSystems.CodeNanite.Schema
         private void Generate()
         {
             AppendText();
-            var thistable = GetTables();
-            foreach (var item in thistable)
+            var thisTable = GetTables();
+            foreach (var item in thisTable)
             {
                 AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");
             }
@@ -36,7 +36,7 @@ namespace ZeraSystems.CodeNanite.Schema
 
             AppendText(Indent(8) + "protected override void OnModelCreating(ModelBuilder modelBuilder)");
             AppendText(Indent(8) + "{");
-            foreach (var item in thistable)
+            foreach (var item in thisTable)
             {
                 var tableEntityConfig = Singularize(item.TableName) + "EntityConfiguration";
                 //AppendText(Indent(12) + "modelBuilder.Entity<" + Singularize(item.TableName) + ">().ToTable(" + Singularize(item.TableName) + ");");

@@ -215,12 +215,11 @@
   <ItemGroup>
     <None Include="Notes.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="logo64x64.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetFileName) "D:\projects-desktop\build\CodeStencil\CodeNanites" /y
+copy $(TargetName).pdb "D:\projects-desktop\build\CodeStencil\CodeNanites" /y
+
 if "$(ConfigurationName)" == "Debug" (
     copy $(TargetFileName) "D:\Documents\CodeStencil\CodeNanites" /y
 ) ELSE (
