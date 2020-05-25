@@ -27,7 +27,7 @@ namespace ZeraSystems.CodeNanite.Schema
         private void Generate()
         {
             AppendText();
-            var thisTable = GetTables();
+            var thisTable = GetTables(false);
             foreach (var item in thisTable)
             {
                 AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");

@@ -7,7 +7,7 @@ namespace ZeraSystems.CodeNanite.Schema
         private void MainFunction()
         {
             AppendText();
-            var table = GetTables();
+            var table = GetTables(false);
             foreach (var item in table)
             {
                 AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");

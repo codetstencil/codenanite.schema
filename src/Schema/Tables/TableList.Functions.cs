@@ -8,7 +8,6 @@ namespace ZeraSystems.CodeNanite.Schema
         {
             OutputList = GetTables(false)
                 .Where(e => string.IsNullOrEmpty(e.ColumnType))
-                //.Where(t=>t.IsChecked)
                 .Select(c => c.TableName)
                 .ToList();
         }
