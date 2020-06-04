@@ -27,7 +27,7 @@ namespace ZeraSystems.CodeNanite.Schema
         private void MainFunction()
         {
             _table = GetTable(Input, false);
-            _tableObject = GetTableObject(Input);
+            _tableObject = GetTableObject(Input, false);
             _columns = GetColumnsExCalculated(Input);  //GetColumns(Input, false, true);
             //GetColumns(_schemaItem, string table, bool onlyIsChecked = true, string excludeColumn = null, bool noCalculated = false)
             if (_columns == null)

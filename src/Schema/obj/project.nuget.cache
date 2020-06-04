@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "rBo4Nk9/U7YFSaFb3n5ZVDB+dZQrYMEYJE7SYgqA3lB1JKKQQWEylhpVuvyeBXslzxyX0hsfqAu42+UpMYb5nQ==",
+  "success": true,
+  "projectFilePath": "D:\\projects-desktop\\codestencil\\code-nanites\\codenanite.schema\\src\\Schema\\ZeraSystems.CodeNanite.Schema.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\htmlagilitypack\\1.11.23\\htmlagilitypack.1.11.23.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\pluralize.net\\1.0.2\\pluralize.net.1.0.2.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\system.text.encoding.codepages\\4.5.0\\system.text.encoding.codepages.4.5.0.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\zerasystems.codenanite.expansion\\1.1.3\\zerasystems.codenanite.expansion.1.1.3.nupkg.sha512",
+    "C:\\Users\\Ayodele-Desktop\\.nuget\\packages\\zerasystems.codestencil.contracts\\1.3.0\\zerasystems.codestencil.contracts.1.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
