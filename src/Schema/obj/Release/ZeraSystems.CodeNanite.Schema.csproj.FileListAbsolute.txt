@@ -11,7 +11,7 @@ D:\projects-desktop\codestencil\code-nanites\build\release\ZeraSystems.CodeNanit
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.csprojAssemblyReference.cache
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.frmModelCreator.resources
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.csproj.GenerateResource.cache
+D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.csproj.CoreCompileInputs.cache
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.csproj.CopyComplete
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.dll
 D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.pdb
-D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\Schema\obj\Release\ZeraSystems.CodeNanite.Schema.csproj.CoreCompileInputs.cache
