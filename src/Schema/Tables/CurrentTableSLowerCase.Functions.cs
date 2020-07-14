@@ -9,6 +9,6 @@
     /// <seealso cref="ZeraSystems.CodeStencil.Contracts.ICodeStencilCodeNanite" />
     public partial class CurrentTableSLowerCase
     {
-        private void MainFunction() => Output = Pluralize(GetTable(Input, false).ToLower());
+        private void MainFunction() => Output = Pluralize(GetTable(Input, false).ToLower(),PreserveTableName());
     }
 }

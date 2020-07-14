@@ -8,6 +8,6 @@
         //    //AppendText(GetTable(Input),"");
         //}
 
-        private void MainFunction() => Output = Singularize(GetTable(Input,false));
+        private void MainFunction() => Output = Singularize(GetTable(Input,false),PreserveTableName());
     }
 }

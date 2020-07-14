@@ -12,7 +12,7 @@ namespace ZeraSystems.CodeNanite.Schema
         private string _table;
         private List<ISchemaItem> _columns;
         private ISchemaItem _tableObject;
-
+        private bool _preserveTableName ;
         public enum Reverse
         {
             WithRequired,
@@ -23,8 +23,7 @@ namespace ZeraSystems.CodeNanite.Schema
 
         private void MainFunction()
         {
-            //_dbcontext = GetExpansionString("DB_CONTEXT");
-            //_namespace = GetExpansionString("NAMESPACE");
+            _preserveTableName = PreserveTableName();
             _table = GetTable(Input, false);
             _tableObject = GetTableObject(Input);
             _columns = GetColumns(Input, false);
@@ -103,8 +102,8 @@ namespace ZeraSystems.CodeNanite.Schema
                     //if (table.TableName == table.RelatedTable) //i.e. self-referencing table
                     //    tableno = "1";
                     hasString +=
-                        Indent(indent) + left + table.TableName.Pluralize() + tableno + ")".AddCarriage() +
-                        Indent(indent + 4) + ReverseDirection(Reverse.WithRequired, table.TableName, _table, tableno) + ";".AddCarriage();
+                        Indent(indent) + left + Pluralize(table.TableName,_preserveTableName) + tableno + ")".AddCarriage() +
+                                                                          Indent(indent + 4) + ReverseDirection(Reverse.WithRequired, table.TableName, _table, tableno) + ";".AddCarriage();
                 }
 
                 AppendText(hasString);

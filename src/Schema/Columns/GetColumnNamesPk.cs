@@ -22,20 +22,20 @@ namespace ZeraSystems.CodeNanite.Schema
     [Export(typeof(ICodeStencilCodeNanite))]
     [CodeStencilCodeNanite(new[]
     {
-        "Zera Systems Inc.",                                        // 0 - Publisher : This is the name of the publisher
-        "Get the list of Column Names (Primary Key is Excluded)",   // 1 - Title : This is the title of the Code Nanite
-        "Returns a list of Column Names of the "+
-        "passed table. (Primary Key is Excluded)",                  // 2
+        "Zera Systems Inc.",                        // 0 - Publisher : This is the name of the publisher
+        "Get the list of Column Names plus Primary Kay",             // 1 - Title : This is the title of the Code Nanite
+        "Returns a list of Column Names plus primary key of the "+
+        "passed table.",                            // 2
         "1.0",                                      // 3
-        "GetColumnNames",                           // 4
+        "GetColumnNamesPk",                           // 4
         "ZeraSystems.CodeNanite.Schema",            // 5
-        "03/29/2020",                               // 6
-        "CS_COLUMN_NAMES",                          // 7
+        "07/02/2020",                               // 6
+        "CS_COLUMN_NAMES_PK",                          // 7
         "1",                                        // 8
         "",                                         // 9
-        "https://codestencil.com/documentation/how-codestencil-works"   // 10
+        "https://codestencil.com/documentation/how-codestencil-works"                                          // 10
     })]
-    public partial class GetColumnNames : ExpansionBase, ICodeStencilCodeNanite
+    public partial class GetColumnNamesPk : ExpansionBase, ICodeStencilCodeNanite
     {
         public string Input { get; set; }
         public string Output { get; set; }

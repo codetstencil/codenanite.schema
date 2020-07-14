@@ -22,20 +22,19 @@ namespace ZeraSystems.CodeNanite.Schema
     [Export(typeof(ICodeStencilCodeNanite))]
     [CodeStencilCodeNanite(new[]
     {
-        "Zera Systems Inc.",                                        // 0 - Publisher : This is the name of the publisher
-        "Get the list of Column Names (Primary Key is Excluded)",   // 1 - Title : This is the title of the Code Nanite
-        "Returns a list of Column Names of the "+
-        "passed table. (Primary Key is Excluded)",                  // 2
-        "1.0",                                      // 3
-        "GetColumnNames",                           // 4
-        "ZeraSystems.CodeNanite.Schema",            // 5
-        "03/29/2020",                               // 6
-        "CS_COLUMN_NAMES",                          // 7
-        "1",                                        // 8
-        "",                                         // 9
-        "https://codestencil.com/documentation/how-codestencil-works"   // 10
+        "Zera Systems Inc.",  
+        "Returns an Input Component",    
+        "Returns an Input Component based on the data type of the column..",                                   
+        "1.0",                                  
+        "GetColumnInputComponent",                         
+        "ZeraSystems.CodeNanite.Schema",               
+        "07/02/2020",                           
+        "CS_COLUMN_INPUT",                        
+        "1",                                   
+        "", 
+        ""                                      
     })]
-    public partial class GetColumnNames : ExpansionBase, ICodeStencilCodeNanite
+    public partial class GetColumnInputComponent : ExpansionBase, ICodeStencilCodeNanite
     {
         public string Input { get; set; }
         public string Output { get; set; }
@@ -43,13 +42,12 @@ namespace ZeraSystems.CodeNanite.Schema
         public List<string> OutputList { get; set; }
         public List<ISchemaItem> SchemaItem { get; set; }
         public List<IExpander> Expander { get; set; }
-        public List<string> InputList { get; set; }
+        public List<string> InputList { get ; set; }
 
         public void ExecutePlugin()
         {
             Initializer(SchemaItem, Expander);
             MainFunction();
-            //Output = ExpandedText.ToString();
         }
     }
 }

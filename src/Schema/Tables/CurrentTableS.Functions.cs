@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ZeraSystems.CodeNanite.Schema
 {
+
     public partial class CurrentTableS
     {
-        void MainFunction() => Output = Pluralize(GetTable(Input, false));
+        void MainFunction() => Output = Pluralize(GetTable(Input, false),PreserveTableName());
     }
 }

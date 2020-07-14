@@ -12,24 +12,27 @@ namespace ZeraSystems.CodeNanite.Schema
 {
     public partial class GenerateModel
     {
-        private string _public = "public ";
-        private string _getSet = " { get; set; }";
+        #region Fields
+        private readonly string _public = "public ";
+        private readonly string _getSet = " { get; set; }";
         private string _className;
         private string _table;
         private List<ISchemaItem> _columns;
         private List<ISchemaItem> _navProperties;
         private List<ISchemaItem> _selfRefColumns;
         private List<ISchemaItem> _foreignKeys;
-
+        private bool _preserveTableName;
+        #endregion
         private void MainFunction()
         {
-            _table = Input.Singularize();
+            _preserveTableName = PreserveTableName();
+            _table = Singularize(Input,_preserveTableName);
             _columns = GetColumns(Input, false); 
             _navProperties = GetNavProperties(Input);
             _foreignKeys = GetForeignKeysInTable(Input)
                 .Where(k=>k.TableName != k.RelatedTable).ToList();
             _selfRefColumns = GetSelfJoinColumns(Input);
-            _className = Singularize(Input) + GetExpansionString("MODEL_SUFFIX") + " ";
+            _className = Singularize(Input,_preserveTableName) + GetExpansionString("MODEL_SUFFIX") + " ";
 
             AppendText();
             AppendText(_public + "partial class " + _className, 4, string.Empty);
@@ -52,7 +55,7 @@ namespace ZeraSystems.CodeNanite.Schema
             foreach (var item in _navProperties)
             {
                 if (item.TableName == _table) continue;
-                BuildSnippet(item.TableName.Pluralize() + " = new HashSet<" + item.TableName + ">();", indent+4);
+                BuildSnippet(Pluralize(item.TableName,_preserveTableName) + " = new HashSet<" + item.TableName + ">();", indent+4);
                 GetSelfRefVanProperty(item);
             }
             BuildSnippet("}", indent);
@@ -101,7 +104,7 @@ namespace ZeraSystems.CodeNanite.Schema
                         _foreignKeys.Clear();
                     }
                     if (item.TableName != _table)
-                        BuildSnippet(_public + "virtual ICollection<" + item.TableName + "> " + item.TableName.Pluralize() + _getSet);
+                        BuildSnippet(_public + "virtual ICollection<" + item.TableName + "> " + Pluralize(item.TableName,_preserveTableName) + _getSet);
                 }
 
             }

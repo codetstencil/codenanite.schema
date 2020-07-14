@@ -9,15 +9,18 @@ namespace ZeraSystems.CodeNanite.Schema
 {
     public partial class ExpandModels
     {
-        private string _public = "public ";
-        private string _getSet = " { get; set; }";
-        private string _virtual = "virtual ";
+        private readonly string _public = "public ";
+        private readonly string _getSet = " { get; set; }";
+        private readonly string _virtual = "virtual ";
+        private bool _preserveTableName ;
         private void MainFunction()
         {
+            _preserveTableName = PreserveTableName();
+
             AppendText();
             BuildSnippet(null);
             BuildSnippet("");
-            BuildSnippet(_public+"class " + Singularize(Input),4) ;
+            BuildSnippet(_public+"class " + Singularize(Input, _preserveTableName),4) ;
             BuildSnippet("{",4);
             AppendText(GetColumns());
             BuildSnippet("}", 4);
@@ -67,8 +70,8 @@ namespace ZeraSystems.CodeNanite.Schema
 
         private void GetCollectionNavigation(ISchemaItem item)
         {
-            var column = Singularize(item.TableName);
-            var columns = Pluralize(item.TableName);
+            var column = Singularize(item.TableName,_preserveTableName);
+            var columns = Pluralize(item.TableName,_preserveTableName);
             BuildSnippet(_iCollectionList, _public +"virtual ICollection<" + column + "> " + columns + _getSet+" = new HashSet<" + column + ">();",8);
         }
         private void GetCollectionNavigation(string item, string inverse)
@@ -78,12 +81,12 @@ namespace ZeraSystems.CodeNanite.Schema
 
         private void GetHashSet(List<ISchemaItem> columns, string theIndent)
         {
-            AppendText(theIndent + "public " + Singularize(Input) + "()");
+            AppendText(theIndent + "public " + Singularize(Input,_preserveTableName) + "()");
             AppendText(theIndent + "{");
             foreach (var item in columns)
             {
                 if (item.IsForeignKey && item.TableName!= Input)
-                    AppendText(theIndent + Indent(4) + "this." + Pluralize(item.TableName) + " = new HashSet<" + Singularize(item.TableName) + ">();");
+                    AppendText(theIndent + Indent(4) + "this." + Pluralize(item.TableName,_preserveTableName) + " = new HashSet<" + Singularize(item.TableName,_preserveTableName) + ">();");
             }
             AppendText(theIndent + "}");
         }

@@ -9,14 +9,18 @@ namespace ZeraSystems.CodeNanite.Schema
 {
     public partial class GenerateLookups
     {
-        private string _public = "public ";
-        private string _getSet = " { get; set; }";
+        #region Fields
+        private readonly string _public = "public ";
+        private readonly string _getSet = " { get; set; }";
         private string _table;
         private List<ISchemaItem> _foreignKeys;
+        private bool _preserveTableName;
+        #endregion
 
         private void MainFunction()
         {
-            _table = GetTable(Input.Singularize());
+            _preserveTableName = PreserveTableName();
+            _table = GetTable(Singularize(Input,_preserveTableName));
             _foreignKeys = GetForeignKeysInTable(_table);
             //_foreignKeys = GetNavProperties(_table);
 
@@ -37,7 +41,7 @@ namespace ZeraSystems.CodeNanite.Schema
             {
                 var sL = item.RelatedTable + "Sl";
                 //var selectList = "Select" + item.RelatedTable;
-                var query = item.RelatedTable.Pluralize().ToLower()+"Query";
+                var query = Pluralize(item.RelatedTable,_preserveTableName).ToLower()+"Query";
                 var selectedTable = "selected" + item.RelatedTable;
                 BuildSnippet(_public + "SelectList " + sL  + _getSet, 8);
                 BuildSnippet("");
@@ -45,7 +49,7 @@ namespace ZeraSystems.CodeNanite.Schema
                              " context, object " + selectedTable + " = null)", 8);
                 BuildSnippet("{", 8);
 
-                BuildSnippet("var " + query +" = from q in context."+_table.Singularize()+" orderby q."+GetTableLabel(_table)+" select q;", 12);
+                BuildSnippet("var " + query +" = from q in context."+Singularize(_table,_preserveTableName)+" orderby q."+GetTableLabel(_table)+" select q;", 12);
                 BuildSnippet("");
                 BuildSnippet(sL + " = new SelectList(" + query + ".AsNoTracking(), " +
                              item.ColumnName.AddQuotes() + ", " + GetTableLabel(_table).AddQuotes() + ", " +

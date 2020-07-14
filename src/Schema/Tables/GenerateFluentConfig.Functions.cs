@@ -15,7 +15,7 @@ namespace ZeraSystems.CodeNanite.Schema
         private string _table;
         private List<ISchemaItem> _columns;
         private ISchemaItem _tableObject;
-
+        private bool _preserveTableName ;
         public enum Reverse
         {
             WithRequired,
@@ -26,6 +26,7 @@ namespace ZeraSystems.CodeNanite.Schema
 
         private void MainFunction()
         {
+            _preserveTableName = PreserveTableName();
             _table = GetTable(Input, false);
             _tableObject = GetTableObject(Input, false);
             _columns = GetColumnsExCalculated(Input);  //GetColumns(Input, false, true);
@@ -159,7 +160,7 @@ namespace ZeraSystems.CodeNanite.Schema
                 if (row.RelatedTable == row.TableName)  //Indicating a table related to itself
                     result += Indent(indent) + ".WithMany(p => p." + row.SelfRefNavProperty() + ")".AddCarriage();
                 else
-                    result += Indent(indent) + ".WithMany(p => p." + _table.Pluralize() + ")".AddCarriage();
+                    result += Indent(indent) + ".WithMany(p => p." + Pluralize(_table,_preserveTableName) + ")".AddCarriage() ;
 
                 result += Indent(indent) + ".HasForeignKey(d => d." + row.ColumnName + ")";
                 //BuildSnippet(".OnDelete(DeleteBehavior.Restrict)");
@@ -293,8 +294,8 @@ namespace ZeraSystems.CodeNanite.Schema
                     //if (table.TableName == table.RelatedTable) //i.e. self-referencing table
                     //    tableno = "1";
                     hasString +=
-                        Indent(indent) + left + table.TableName.Pluralize() + tableno + ")".AddCarriage() +
-                        Indent(indent + 4) + ReverseDirection(Reverse.WithRequired, table.TableName, _table, tableno) + ";".AddCarriage();
+                        Indent(indent) + left + Pluralize(table.TableName,_preserveTableName) + tableno + ")".AddCarriage() +
+                                                                          Indent(indent + 4) + ReverseDirection(Reverse.WithRequired, table.TableName, _table, tableno) + ";".AddCarriage();
                 }
 
                 AppendText(hasString);

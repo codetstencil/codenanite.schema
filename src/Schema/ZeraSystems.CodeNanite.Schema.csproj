@@ -25,7 +25,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>..\..\..\build\release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -76,14 +76,22 @@
       <DependentUpon>GetColumnDbTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Columns\GetColumnCaptions.cs" />
+    <Compile Include="Columns\GetColumnInputComponent.Functions.cs">
+      <DependentUpon>GetColumnInputComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Columns\GetColumnNames.Functions.cs">
       <DependentUpon>GetColumnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnNamesPk.cs" />
+    <Compile Include="Columns\GetColumnNamesPk.Functions.cs">
+      <DependentUpon>GetColumnNamesPk.cs</DependentUpon>
     </Compile>
     <Compile Include="Columns\GetColumnTypes.cs" />
     <Compile Include="Columns\GetColumnNames.cs" />
     <Compile Include="Columns\GetColumnTypes.Functions.cs">
       <DependentUpon>GetColumnTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Columns\GetColumnInputComponent.cs" />
     <Compile Include="Columns\GetPrimaryKey.cs" />
     <Compile Include="Columns\GetPrimaryKey.Functions.cs">
       <DependentUpon>GetPrimaryKey.cs</DependentUpon>
@@ -113,6 +121,10 @@
     <Compile Include="Tables\CurrentTable.cs" />
     <Compile Include="Tables\CurrentTable.Functions.cs">
       <DependentUpon>CurrentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tables\CurrentTableLabel.cs" />
+    <Compile Include="Tables\CurrentTableLabel.Functions.cs">
+      <DependentUpon>CurrentTableLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Tables\CurrentTableLowerCase.cs" />
     <Compile Include="Tables\CurrentTableLowerCase.Functions.cs">
@@ -197,7 +209,7 @@
       <Version>1.0.2</Version>
     </PackageReference>
     <PackageReference Include="ZeraSystems.CodeNanite.Expansion">
-      <Version>1.3.0</Version>
+      <Version>1.3.2</Version>
     </PackageReference>
     <PackageReference Include="ZeraSystems.CodeStencil.Contracts">
       <Version>1.3.0</Version>

@@ -12,11 +12,12 @@ namespace ZeraSystems.CodeNanite.Schema
         private string _table;
         private List<ISchemaItem> _columns;
         private string _dbcontext;
-
+        private bool _preserveTableName ;
         #endregion Fields
 
         private void MainFunction()
         {
+            _preserveTableName = PreserveTableName();
             _dbcontext = GetExpansionString("DB_CONTEXT");
             _namespace = GetExpansionString("NAMESPACE");
             _table = GetTable(Input, false);
@@ -34,7 +35,7 @@ namespace ZeraSystems.CodeNanite.Schema
             var thistable = GetTables(false);
             foreach (var item in thistable)
             {
-                AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");
+                AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName,_preserveTableName) + "> " + Pluralize(item.TableName,_preserveTableName) + " { get; set; }");
             }
             AppendText("");
 
@@ -43,33 +44,11 @@ namespace ZeraSystems.CodeNanite.Schema
             var noLineFeed = string.Empty;
             foreach (var item in thistable)
             {
-                var tableEntityConfig = Singularize(item.TableName) + "EntityConfiguration";
+                var tableEntityConfig = Singularize(item.TableName,_preserveTableName) + "EntityConfiguration";
                 AppendText(Indent(12) + "modelBuilder.ApplyConfiguration(new " + tableEntityConfig + "());", noLineFeed) ;
             }
             AppendText(Indent(8) + "}");
         }
-
-        //private void Generate()
-        //{
-        //    AppendText();
-        //    var thistable = GetTables();
-        //    foreach (var item in thistable)
-        //    {
-        //        AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");
-        //    }
-        //    AppendText("");
-
-        //    AppendText(Indent(8) + "protected override void OnModelCreating(DbModelBuilder modelBuilder)");
-        //    AppendText(Indent(8) + "{");
-        //    var noLineFeed = string.Empty;
-        //    foreach (var item in thistable)
-        //    {
-        //        var tableEntityconfig = Singularize(item.TableName) + "EntityConfiguration";
-        //        AppendText(Indent(12) + "modelBuilder.Configurations.Add(new " + tableEntityconfig + "());", noLineFeed);
-        //        //AppendText("");
-        //    }
-        //    AppendText(Indent(8) + "}");
-        //}
 
     }
 }

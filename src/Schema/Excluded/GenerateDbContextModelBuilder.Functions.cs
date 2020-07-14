@@ -8,11 +8,12 @@ namespace ZeraSystems.CodeNanite.Schema
         #region Fields
 
         private List<ISchemaItem> _columns;
-
+        private bool _preserveTableName ;
         #endregion Fields
 
         private void MainFunction()
         {
+            _preserveTableName = PreserveTableName();
             GetExpansionString("DB_CONTEXT");
             GetExpansionString("NAMESPACE");
             GetTable(Input, false);
@@ -30,7 +31,7 @@ namespace ZeraSystems.CodeNanite.Schema
             var thisTable = GetTables(false);
             foreach (var item in thisTable)
             {
-                AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName) + "> " + Pluralize(item.TableName) + " { get; set; }");
+                AppendText(Indent(8) + "public DbSet<" + Singularize(item.TableName,_preserveTableName) + "> " + Pluralize(item.TableName,_preserveTableName) + " { get; set; }");
             }
             AppendText("");
 
@@ -38,7 +39,7 @@ namespace ZeraSystems.CodeNanite.Schema
             AppendText(Indent(8) + "{");
             foreach (var item in thisTable)
             {
-                var tableEntityConfig = Singularize(item.TableName) + "EntityConfiguration";
+                var tableEntityConfig = Singularize(item.TableName,_preserveTableName) + "EntityConfiguration";
                 AppendText(Indent(12) + "modelBuilder.ApplyConfiguration(new " + tableEntityConfig + "());");
                 //AppendText("");
             }
