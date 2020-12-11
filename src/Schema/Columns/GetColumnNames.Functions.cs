@@ -4,9 +4,11 @@ namespace ZeraSystems.CodeNanite.Schema
 {
     public partial class GetColumnNames
     {
+        private string _table;
         private void MainFunction()
         {
-            OutputList = GetColumns(Input)
+            _table = GetTable(Input);
+            OutputList = GetColumns(_table)
                 .Where(e => !string.IsNullOrEmpty(e.ColumnType))
                 .Where(t => t.IsChecked)
                 .Where(t => !t.IsPrimaryKey)
