@@ -79,8 +79,12 @@
     <Compile Include="Columns\GetColumnInputComponent.Functions.cs">
       <DependentUpon>GetColumnInputComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Columns\GetColumnNamesFK.cs" />
     <Compile Include="Columns\GetColumnNames.Functions.cs">
       <DependentUpon>GetColumnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Columns\GetColumnNamesFK.Functions.cs">
+      <DependentUpon>GetColumnNamesFK.cs</DependentUpon>
     </Compile>
     <Compile Include="Columns\GetColumnNamesPk.cs" />
     <Compile Include="Columns\GetColumnNamesPk.Functions.cs">
