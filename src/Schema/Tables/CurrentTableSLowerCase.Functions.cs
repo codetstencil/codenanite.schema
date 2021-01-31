@@ -1,4 +1,6 @@
-﻿namespace ZeraSystems.CodeNanite.Schema
+﻿using ZeraSystems.CodeNanite.Expansion;
+
+namespace ZeraSystems.CodeNanite.Schema
 {
     /// <summary>
     /// Returns the current table pluralized and in lowercase
@@ -9,6 +11,19 @@
     /// <seealso cref="ZeraSystems.CodeStencil.Contracts.ICodeStencilCodeNanite" />
     public partial class CurrentTableSLowerCase
     {
-        private void MainFunction() => Output = Pluralize(GetTable(Input, false).ToLower(),PreserveTableName());
+        
+
+        private void MainFunction()
+        {
+            var table = GetTable(Input);
+            //if (table.IsBlank())
+            //{
+            //    table = Singularize(Input);
+            //    table = char.ToUpper(table[0]) + table.Substring(1);
+            //}
+
+            
+            Output = Pluralize(GetTable(table, false).ToLower(), PreserveTableName());
+        }
     }
 }

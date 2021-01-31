@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>D:\projects-desktop\build\CodeStencil\Debug\CodeStencil.exe</StartProgram>
-    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\code-nanites\codenanite.schema\src\CodeStencil.Debug.xml"</StartArguments>
+    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\code-nanites\CodeStencil.Debug"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartAction>Program</StartAction>
